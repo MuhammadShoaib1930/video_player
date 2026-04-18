@@ -1,5 +1,5 @@
-
 part of 'video_player_bloc.dart';
+
 sealed class VideoPlayerEvent extends Equatable {
   const VideoPlayerEvent();
 
@@ -17,6 +17,7 @@ final class InitializePlayer extends VideoPlayerEvent {
   List<Object?> get props => [assets, startIndex];
 }
 
+
 final class PlayPause extends VideoPlayerEvent {}
 
 final class SeekForward extends VideoPlayerEvent {}
@@ -31,10 +32,12 @@ final class ChangeIndex extends VideoPlayerEvent {
   @override
   List<Object?> get props => [index];
 }
+
 class StartSleepTimer extends VideoPlayerEvent {
   final Duration duration;
   const StartSleepTimer(this.duration);
 }
+
 final class SetPitch extends VideoPlayerEvent {
   final double pitch;
   const SetPitch(this.pitch);
@@ -42,7 +45,9 @@ final class SetPitch extends VideoPlayerEvent {
   @override
   List<Object> get props => [pitch];
 }
+
 class CancelSleepTimer extends VideoPlayerEvent {}
+
 final class NextPlay extends VideoPlayerEvent {}
 
 final class PreviousPlay extends VideoPlayerEvent {}

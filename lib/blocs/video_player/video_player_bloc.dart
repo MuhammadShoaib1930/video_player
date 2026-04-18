@@ -17,6 +17,7 @@ class VideoPlayerBloc extends Bloc<VideoPlayerEvent, VideoPlayerState> {
   Timer? sleepTimer;
   Duration? sleepDuration;
   bool isSleepEnabled = false;
+  Timer? controlsTimer;
   final PlayerServices playerServices = PlayerServices();
 
   StreamSubscription? _posSub;
@@ -247,4 +248,6 @@ class VideoPlayerBloc extends Bloc<VideoPlayerEvent, VideoPlayerState> {
       emit((state as PlayerReady).copyWith(setPitch: event.pitch));
     }
   }
+
+
 }

@@ -16,6 +16,7 @@ class PlayerServices {
     }
   }
 
+
   Future<List<Media>> assetEntityToMedia(List<AssetEntity> data) async {
     List<Media> media = [];
     for (var item in data) {

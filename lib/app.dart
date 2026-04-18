@@ -13,17 +13,17 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ThemeBloc(),
-      child: BlocBuilder<ThemeBloc, ThemeState>(
+      child: BlocBuilder<ThemeBloc, ThemeInitial>(
         builder: (context, state) {
           return MaterialApp(
             theme: lightTheme,
             darkTheme: darkTheme,
 
-            themeMode: (state as ThemeInitial).themeMode,
+            themeMode: state.themeMode,
 
             onGenerateRoute: onGenerateRoute,
             initialRoute: RoutesName.homePage,
-
+            debugShowCheckedModeBanner: false,
           );
         },
       ),

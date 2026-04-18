@@ -40,7 +40,6 @@ final class PlayerReady extends VideoPlayerState {
     buffring,
     currentIndex,
     ratSpeed,
-    setPitch,
   ];
   PlayerReady copyWith({
     bool? isplaying,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:video_player/blocs/theme/theme_bloc.dart';
 import 'package:video_player/core/routes/routes_name.dart';
 
 class HomePage extends StatelessWidget {
@@ -7,7 +9,28 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("HomePage")),
+      appBar: AppBar(
+        title: Text("HomePage"),
+        centerTitle: true,
+        actions: [
+          BlocBuilder<ThemeBloc, ThemeInitial>(
+            builder: (context, state) {
+              return IconButton(
+                onPressed: () {
+                  if (state.isDark) {
+                    context.read<ThemeBloc>().add(LightTheme());
+                  }else{
+
+                    context.read<ThemeBloc>().add(DarkTheme());
+                  }
+                },
+                icon: Icon((state.isDark)?Icons.light_mode:Icons.dark_mode),
+              );
+            },
+          ),
+        ],
+      ),
+
       body: Center(
         child: Column(
           children: [
